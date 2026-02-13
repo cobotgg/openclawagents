@@ -1,6 +1,5 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { cache } from "hono/cache";
 import { SolanaReader } from "./solana";
 import { buildAgentCard } from "./agent-card";
 

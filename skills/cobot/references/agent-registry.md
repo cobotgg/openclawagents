@@ -91,7 +91,6 @@ Rate an agent with a score and optional comment.
 **Constraints:**
 - Score must be 0-100
 - One review per wallet per agent (enforced by PDA seeds)
-- Cannot review your own agent
 
 ## Common Workflows
 
