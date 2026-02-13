@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-registry-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-05-12",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "SOLANA_RPC_URL": "https://api.devnet.solana.com",
+    "PROGRAM_ID": "5kFt6rNPb88LzwqE7LMQyGeB8jBf24thBKsUuwr5sUYx"
+  }
+}

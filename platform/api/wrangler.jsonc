@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cobotclaw-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cobotclaw-platform",
+      "database_id": "PLACEHOLDER_D1_ID"
+    }
+  ],
+
+  "vars": {
+    "SANDBOX_WORKER_URL": "https://cobotclaw-sandbox.your-subdomain.workers.dev",
+    "FIREBASE_PROJECT_ID": "your-firebase-project"
+  }
+
+  // Required secrets (set via: wrangler secret put <NAME>):
+  // - ADMIN_TOKEN           Bearer token for internal sandbox API calls
+}

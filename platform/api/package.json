@@ -1,0 +1,19 @@
+{
+  "name": "cobot-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:migrate": "wrangler d1 execute cobot-platform --file=schema.sql"
+  },
+  "dependencies": {
+    "hono": "^4.7.0",
+    "jose": "^6.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250124.0",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.63.0"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cobotclaw-sandbox",
+  "main": "./src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "logs": { "enabled": true }
+  },
+
+  "containers": [
+    {
+      "name": "cobotclaw-container",
+      "class_name": "Sandbox",
+      "image": "./Dockerfile",
+      "instance_type": "standard-1",
+      "max_instances": 25,
+      "constraints": {
+        "region": ["wnam"]
+      }
+    }
+  ],
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "Sandbox",
+        "name": "Sandbox"
+      }
+    ]
+  },
+
+  "migrations": [
+    {
+      "new_sqlite_classes": ["Sandbox"],
+      "tag": "v1"
+    }
+  ],
+
+  // Cron: set Telegram webhooks for sleeping tenants (every 1 min, KV only, no DOs)
+  "triggers": {
+    "crons": ["* * * * *"]
+  },
+
+  "vars": {
+    "WORKER_URL": "https://cobotclaw-sandbox.your-subdomain.workers.dev",
+    "R2_BUCKET_NAME": "cobotclaw-data"
+  },
+
+  "kv_namespaces": [
+    {
+      "binding": "TENANT_CONFIGS",
+      "id": "PLACEHOLDER_KV_ID"
+    }
+  ]
+}

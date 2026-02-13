@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.wrangler/
+target/
+.anchor/
+test-ledger/
+*.so
+*.log
+.env
+.env.*
+*.secret
+.DS_Store

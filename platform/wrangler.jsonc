@@ -1,0 +1,43 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cobot-ai",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-05-06",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+
+  "kv_namespaces": [
+    {
+      "binding": "TENANT_REGISTRY",
+      "id": "PLACEHOLDER_KV_ID"
+    },
+    {
+      "binding": "TELEGRAM_ROUTING",
+      "id": "PLACEHOLDER_KV_ID"
+    },
+    {
+      "binding": "BOT_ROUTING",
+      "id": "PLACEHOLDER_KV_ID"
+    }
+  ],
+
+  "d1_databases": [
+    {
+      "binding": "USAGE_DB",
+      "database_name": "cobot-usage",
+      "database_id": "PLACEHOLDER_D1_ID"
+    }
+  ],
+
+  "vars": {
+    "WORKERS_SUBDOMAIN": "your-subdomain"
+  }
+
+  // Required secrets (set via: wrangler secret put <NAME>):
+  // - OPENAI_API_KEY         Platform OpenAI key (injected to all tenant Workers)
+  // - ANTHROPIC_API_KEY      Platform Anthropic key (optional)
+  // - CF_API_TOKEN           Cloudflare API token (needs Workers:Edit permission)
+  // - CF_ACCOUNT_ID          Your Cloudflare account ID
+  // - PLATFORM_SECRET        Random secret for generating webhook secrets
+  // - ADMIN_TOKEN            Bearer token for admin API endpoints
+}

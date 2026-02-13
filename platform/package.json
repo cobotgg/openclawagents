@@ -1,0 +1,19 @@
+{
+  "name": "cobot-ai",
+  "version": "2.0.0",
+  "description": "Multi-tenant AI assistant platform on Cloudflare Workers",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "cf-typegen": "wrangler types",
+    "db:migrate": "wrangler d1 execute cobot-usage --file=schema.sql"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250109.0",
+    "typescript": "^5.7.0",
+    "wrangler": "^4.0.0"
+  }
+}
